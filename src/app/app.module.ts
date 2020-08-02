@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './Header/header.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { RecipeListComponent } from './recipe/recipe-list/recipe-list.component';
 import { RecipeDetailComponent } from './recipe/recipe-detail/recipe-detail.component';
-import { ShoppingComponent } from './shopping/shopping.component';
-import { ShoppingListEditComponent } from './Shopping/shopping-list-edit/shopping-list-edit.component';
+import { RecipeItemComponent } from './recipe/recipe-list/recipe-item/recipe-item.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { ShoppingListEditComponent } from './shopping-list/shopping-list-edit/shopping-list-edit.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { ShoppingListEditComponent } from './Shopping/shopping-list-edit/shoppin
     RecipeComponent,
     RecipeListComponent,
     RecipeDetailComponent,
-    ShoppingComponent,
-    ShoppingListEditComponent
+    RecipeItemComponent,
+    ShoppingListComponent,
+    ShoppingListEditComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
