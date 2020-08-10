@@ -1,5 +1,5 @@
+import { Ingredient } from './../shared/ingredient.modal';
 import { Component, OnInit } from '@angular/core';
-import {Ingredient} from '../shared/ingredient.modal';
 
 @Component({
   selector: 'app-shopping-list',
@@ -17,7 +17,8 @@ export class ShoppingListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addItem(eventData: any){
+  // tslint:disable-next-line: typedef
+  addItem(eventData: Ingredient){
     this.ingredients.push(eventData);
   }
 }
