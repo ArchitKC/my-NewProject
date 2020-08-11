@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // tslint:disable-next-line: typedef
   display(featurePage: string){
     this.featurePageLink.emit(featurePage);
   }

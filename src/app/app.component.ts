@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
 // tslint:disable-next-line: no-inferrable-types
   loadedLinkPage: string = '';
+
+  // tslint:disable-next-line: typedef
   navigatePage(featureData: string){
       this.loadedLinkPage = featureData;
   }
