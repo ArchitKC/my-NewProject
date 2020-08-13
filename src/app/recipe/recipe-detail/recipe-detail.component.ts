@@ -1,4 +1,4 @@
-import { Recipe } from './../recipe.modal';
+import { Recipe } from '../../shared/recipe.modal';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

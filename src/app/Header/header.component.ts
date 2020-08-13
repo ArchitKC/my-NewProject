@@ -7,6 +7,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  displayAccount = true;
   @Output() featurePageLink = new EventEmitter<string>();
   constructor() { }
 
