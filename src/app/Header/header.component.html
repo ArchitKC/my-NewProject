@@ -3,17 +3,16 @@
         <div class="navbar-header">
             <a href="#" class="navbar-brand">Recipe Book</a>
         </div>
-
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#" (click)="display('recipe')">Recipes </a>
+                    <a class="nav-link" routerLink="/recipe" routerLinkActive="active">Recipes </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" (click)="display('shopping')">Shopping List </a>
+                    <a class="nav-link" routerLink="/shoppingList" routerLinkActive="active">Shopping List </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" (click)="display('account')">View Services </a>
+                    <a class="nav-link" routerLink="/viewService" routerLinkActive="active">View Services </a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

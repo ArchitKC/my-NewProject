@@ -1,3 +1,4 @@
+import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +17,16 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { LoggingServices } from './services/logging.services';
 import { AccountServices } from './services/account.services';
 import { ShoppingListService } from './services/shoppinglist.services';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+const appRoute: Routes = [
+  {path: '', redirectTo: 'recipe',  pathMatch: 'full'},
+  {path: 'recipe', component: RecipeComponent},
+  {path: 'shoppingList', component: ShoppingListComponent},
+  {path: 'viewService', component: AccountComponent},
+  {path: 'not-found', component: PageNotFoundComponent},
+  {path: '**', redirectTo: 'not-found'}
+];
 
 @NgModule({
   declarations: [
@@ -29,11 +40,13 @@ import { ShoppingListService } from './services/shoppinglist.services';
     ShoppingListEditComponent,
     DropdownDirective,
     AccountComponent,
-    NewAccountComponent
+    NewAccountComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoute)
   ],
   providers: [
     AccountServices,

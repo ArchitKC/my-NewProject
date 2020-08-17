@@ -1,11 +1,21 @@
-<div class="row">
-  <div class="col-xs-12 col-md-8 col-md-offset-2">
-    <h5>{{ account.name }}</h5>
-    <hr>
-    <p>This account is {{ account.status }}</p>
-    <button class="btn btn-default" (click)="onSetTo('active')">Set to 'active'</button>
-    <button class="btn btn-default" (click)="onSetTo('inactive')">Set to 'inactive'</button>
-    <button class="btn btn-default" (click)="onSetTo('unknown')">Set to 'unknown'</button>
-  </div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
+            <app-new-account></app-new-account>
+            <hr>
+            <div class="row">
+                <div class="col-xs-12 col-md-8 col-md-offset-2" *ngFor="let account of accounts;
+                let i = index">
+                    <h5>{{ account.name }}</h5>
+                    <hr>
+                    <p>This account is {{ account.status }}</p>
+                    <button class="btn btn-default" (click)="onSetTo('active',i)">Set to 'active'</button>
+                    <button class="btn btn-default" (click)="onSetTo('inactive',i)">Set to 'inactive'</button>
+                    <button class="btn btn-default" (click)="onSetTo('unknown',i)">Set to 'unknown'</button>
+                </div>
+            </div>
+            <!-- <app-account *ngFor="let acc of accounts;
+          let i = index" [account]="acc" [id]="i"></app-account> -->
+        </div>
+    </div>
 </div>
-
