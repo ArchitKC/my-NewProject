@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit} from '@angular/core';
 import {Recipe} from '../../shared/recipe.modal';
 import { RecipeService } from './../../services/recipe.services';
@@ -10,10 +11,18 @@ import { RecipeService } from './../../services/recipe.services';
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[];
 
-  constructor(private recipeService: RecipeService) {
+  constructor(
+    private recipeService: RecipeService,
+    private router: Router,
+    private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.recipes = this.recipeService.getRecipes();
+  }
+
+  // tslint:disable-next-line: typedef
+  onNewClick(){
+    this.router.navigate(['edit'], {relativeTo: this.route});
   }
 }

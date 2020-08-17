@@ -18,10 +18,18 @@ import { LoggingServices } from './services/logging.services';
 import { AccountServices } from './services/account.services';
 import { ShoppingListService } from './services/shoppinglist.services';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RecipeInitialComponent } from './recipe/recipe-initial/recipe-initial.component';
+import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component';
 
 const appRoute: Routes = [
   {path: '', redirectTo: 'recipe',  pathMatch: 'full'},
-  {path: 'recipe', component: RecipeComponent},
+  {path: 'recipe', component: RecipeComponent,
+  children: [
+    {path: '', component: RecipeInitialComponent},
+    {path: 'edit', component: RecipeEditComponent},
+    {path: ':id', component: RecipeDetailComponent},
+    {path: ':id/edit', component: RecipeEditComponent}
+  ]},
   {path: 'shoppingList', component: ShoppingListComponent},
   {path: 'viewService', component: AccountComponent},
   {path: 'not-found', component: PageNotFoundComponent},
@@ -41,7 +49,9 @@ const appRoute: Routes = [
     DropdownDirective,
     AccountComponent,
     NewAccountComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    RecipeInitialComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,
