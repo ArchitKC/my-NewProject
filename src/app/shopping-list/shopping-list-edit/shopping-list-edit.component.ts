@@ -19,10 +19,10 @@ export class ShoppingListEditComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   onAddItem(){
-    const nameValue = this.nameInputValue.nativeElement.value;
-    const amountValue = this.amountInputValue.nativeElement.value;
-    const ingredientData = new Ingredient(nameValue, amountValue);
-    this.shoppingLsService.addIngredients(ingredientData);
+    const ingName = this.nameInputValue.nativeElement.value;
+    const ingAmount = this.amountInputValue.nativeElement.value;
+    const newIngredient = new Ingredient(ingName, ingAmount);
+    this.shoppingLsService.addIngredient(newIngredient);
     this.nameInputValue.nativeElement.value = '';
     this.amountInputValue.nativeElement.value = '';
 

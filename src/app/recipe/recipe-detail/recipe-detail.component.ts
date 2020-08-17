@@ -14,7 +14,7 @@ export class RecipeDetailComponent  {
     ) { }
 
   // tslint:disable-next-line: typedef
-  onAddToShoppingList(){
-    this.recipeService.addIngredienttoShopping(this.recipe.ingredient);
+  onAddToShoppingList() {
+    this.recipeService.addIngredientsToShoppingList(this.recipe.ingredient);
   }
 }

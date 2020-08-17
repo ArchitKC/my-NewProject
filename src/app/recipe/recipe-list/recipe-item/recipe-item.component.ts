@@ -8,18 +8,14 @@ import { Recipe } from '../../../shared/recipe.modal';
   styleUrls: ['./recipe-item.component.css']
 })
 export class RecipeItemComponent implements OnInit {
-  @Input() recipeItem: Recipe;
+  @Input() recipe: Recipe;
 
-  constructor(
-    private recipeService: RecipeService
-  ) { }
+  constructor(private recipeService: RecipeService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
-  // tslint:disable-next-line: typedef
-  recipeItemClick(){
-    this.recipeService.recipeSelected.emit(this.recipeItem);
-
+  onSelected() {
+    this.recipeService.recipeSelected.emit(this.recipe);
   }
 }

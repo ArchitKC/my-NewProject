@@ -10,13 +10,15 @@ import { RecipeService } from '../services/recipe.services';
 })
 export class RecipeComponent implements OnInit {
   selectedRecipe: Recipe;
+
   constructor(private recipeService: RecipeService) { }
 
-  // tslint:disable-next-line: typedef
   ngOnInit() {
-     this.recipeService.recipeSelected.
-     subscribe((recipe: Recipe) => {
-         this.selectedRecipe = recipe;
-       });
+    this.recipeService.recipeSelected
+      .subscribe(
+        (recipe: Recipe) => {
+          this.selectedRecipe = recipe;
+        }
+      );
   }
 }

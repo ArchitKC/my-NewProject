@@ -9,12 +9,11 @@ import { RecipeService } from './../../services/recipe.services';
 })
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[];
-  constructor(
-    private recipeService: RecipeService
-  ) { }
 
-  // tslint:disable-next-line: typedef
+  constructor(private recipeService: RecipeService) {
+  }
+
   ngOnInit() {
-    this.recipes = this.recipeService.getrecipecontent();
+    this.recipes = this.recipeService.getRecipes();
   }
 }

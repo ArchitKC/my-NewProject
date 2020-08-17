@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
 // tslint:disable-next-line: no-inferrable-types
-  loadedLinkPage: string = '';
+  loadedLinkPage: string = 'recipe';
   accounts: {name: string, status: string}[] = [];
   constructor(
     private accountService: AccountServices

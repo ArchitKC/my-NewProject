@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Header/header.component';
 import { RecipeComponent } from './recipe/recipe.component';
@@ -36,9 +33,6 @@ import { ShoppingListService } from './services/shoppinglist.services';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    NgbModule,
-    BrowserAnimationsModule,
     FormsModule
   ],
   providers: [
