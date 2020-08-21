@@ -12,11 +12,14 @@ export class RecipeEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) { }
 
-  ngOnInit(){
-    this.route.params.subscribe((param: Params) => {
-      this.id = +param.id;
-      this.editMode = param.id != null;
-    });
+  // tslint:disable-next-line: typedef
+  ngOnInit() {
+    this.route.params
+      .subscribe(
+        (params: Params) => {
+          this.id = +params.id;
+          this.editMode = params.id != null;
+        }
+      );
   }
-
 }

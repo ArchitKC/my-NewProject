@@ -1,11 +1,10 @@
 import { ShoppingListService } from './shoppinglist.services';
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import {Recipe} from '../shared/recipe.modal';
 import { Ingredient } from '../shared/ingredient.modal';
 
 @Injectable()
 export class RecipeService{
-  recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
     new Recipe(
@@ -33,8 +32,8 @@ export class RecipeService{
   }
 
   // tslint:disable-next-line: typedef
-  getRecipeById(index: number){
-    return this.recipes.slice()[index];
+  getRecipe(index: number) {
+    return this.recipes[index];
   }
 
   // tslint:disable-next-line: typedef

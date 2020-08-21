@@ -14,18 +14,17 @@ export class ShoppingListService{
   }
 
   // tslint:disable-next-line: typedef
-  addIngredients(ingredient: Ingredient[]){
-    this.ingredients.push(...ingredient);
-    this.ingredientsChanged.emit(this.ingredients.slice());
+  addIngredient(ingredient: Ingredient) {
+    this.ingredients.push(ingredient);
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
 
   // tslint:disable-next-line: typedef
-  addIngredient(ingredient: Ingredient){
-    // tslint:disable-next-line: prefer-const
-    // for (let ingredeintitem of ingredient){
-    //   this.ingredients.push(ingredeintitem);
+  addIngredients(ingredients: Ingredient[]) {
+    // for (let ingredient of ingredients) {
+    //   this.addIngredient(ingredient);
     // }
-    this.ingredients.push(ingredient);
-    this.ingredientsChanged.emit(this.ingredients.slice());
+    this.ingredients.push(...ingredients);
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
 }

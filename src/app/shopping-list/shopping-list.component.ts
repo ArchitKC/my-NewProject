@@ -12,6 +12,7 @@ export class ShoppingListComponent implements OnInit {
 
   constructor(private shoppingListService: ShoppingListService) { }
 
+  // tslint:disable-next-line: typedef
   ngOnInit() {
     this.ingredients =  this.shoppingListService.getIngredient();
     this.shoppingListService.ingredientsChanged

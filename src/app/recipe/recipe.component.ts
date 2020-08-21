@@ -14,12 +14,5 @@ export class RecipeComponent implements OnInit {
   constructor(private recipeService: RecipeService) { }
 
   // tslint:disable-next-line: typedef
-  ngOnInit() {
-    this.recipeService.recipeSelected
-      .subscribe(
-        (recipe: Recipe) => {
-          this.selectedRecipe = recipe;
-        }
-      );
-  }
+  ngOnInit() {}
 }
