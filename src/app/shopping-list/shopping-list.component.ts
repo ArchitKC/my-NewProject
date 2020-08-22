@@ -20,4 +20,10 @@ export class ShoppingListComponent implements OnInit {
       this.ingredients = ingredient;
     });
   }
+
+  // tslint:disable-next-line: typedef
+  onEditShoppingItem(id: number){
+    this.shoppingListService.editShoppingList.next(id);
+    console.log(this.ingredients[id]);
+  }
 }

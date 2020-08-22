@@ -1,3 +1,4 @@
+import { ShoppingListEditComponent } from './shopping-list/shopping-list-edit/shopping-list-edit.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -19,7 +20,10 @@ const appRoute: Routes = [
     {path: ':id', component: RecipeDetailComponent},
     {path: ':id/edit', component: RecipeEditComponent}
   ]},
-  {path: 'shoppingList', component: ShoppingListComponent},
+  {path: 'shoppingList', component: ShoppingListComponent,
+  children: [
+    {path: 'edit', component: ShoppingListEditComponent}
+  ]},
   {path: 'viewService', component: AccountComponent},
   {path: 'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: 'not-found'}
