@@ -1,5 +1,6 @@
+import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {Recipe} from '../../shared/recipe.modal';
 import { RecipeService } from './../../services/recipe.services';
 
@@ -8,8 +9,9 @@ import { RecipeService } from './../../services/recipe.services';
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css']
 })
-export class RecipeListComponent implements OnInit {
+export class RecipeListComponent implements OnInit, OnDestroy {
   recipes: Recipe[];
+  recipeServiceSubscribe = new Subscription();
 
   constructor(
     private recipeService: RecipeService,
@@ -19,7 +21,7 @@ export class RecipeListComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
-    this.recipeService.recipeChanged.subscribe(
+    this.recipeServiceSubscribe = this.recipeService.recipeChanged.subscribe(
       (recipe) => {
         this.recipes = recipe;
       });
@@ -29,5 +31,10 @@ export class RecipeListComponent implements OnInit {
   // tslint:disable-next-line: typedef
   onNewClick(){
     this.router.navigate(['edit'], {relativeTo: this.route});
+  }
+
+  // tslint:disable-next-line: typedef
+  ngOnDestroy(){
+    this.recipeServiceSubscribe.unsubscribe();
   }
 }

@@ -2,6 +2,7 @@ import { RecipeService } from './../../services/recipe.services';
 import { Recipe } from '../../shared/recipe.modal';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -37,5 +38,11 @@ export class RecipeDetailComponent implements OnInit  {
   onEditRecipe() {
     this.router.navigate(['edit'], {relativeTo: this.route});
     // this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
+  }
+
+  // tslint:disable-next-line: typedef
+  onDeleteRecipe(){
+    this.recipeService.deleteRecipe(this.id);
+    this.router.navigate(['recipe']);
   }
 }

@@ -58,4 +58,10 @@ export class RecipeService{
     this.recipes[index] = updateRecipe;
     this.recipeChanged.next(this.recipes.slice());
   }
+
+  // tslint:disable-next-line: typedef
+  deleteRecipe(index: number){
+    this.recipes.splice(index, 1);
+    this.recipeChanged.next(this.recipes.slice());
+  }
 }

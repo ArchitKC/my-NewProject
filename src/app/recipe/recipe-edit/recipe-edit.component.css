@@ -2,3 +2,8 @@ input.ng-invalid.ng-touched,
 textarea.ng-valid.ng-touched {
     border: 1px solid red;
 }
+
+img {
+    width: 100%;
+    height: 100%;
+}

@@ -1,7 +1,7 @@
 import { Recipe } from './../../shared/recipe.modal';
 import { Ingredient } from './../../shared/ingredient.modal';
 import { RecipeService } from './../../services/recipe.services';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 
@@ -22,7 +22,8 @@ export class RecipeEditComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private router: Router
     ) { }
 
   // tslint:disable-next-line: typedef
@@ -50,6 +51,10 @@ export class RecipeEditComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
+  onCancel(){
+    this.router.navigate(['../'], {relativeTo: this.route});
+  }
+  // tslint:disable-next-line: typedef
   onSubmit(){
     console.log(this.formRecipeEdit.value);
     if (this.editMode){
@@ -57,10 +62,13 @@ export class RecipeEditComponent implements OnInit {
     }else{
       this.recipeService.addRecipe(this.formRecipeEdit.value);
     }
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 
   // tslint:disable-next-line: typedef
-  onRemoveIngredient(){}
+  onRemoveIngredient(index: number){
+    (this.formRecipeEdit.get('ingredients') as FormArray).removeAt(index);
+  }
 
   // tslint:disable-next-line: typedef
   private formInit(){
