@@ -40,7 +40,7 @@ export class RecipeEditComponent implements OnInit {
   onAddIngredient(){
     (this.formRecipeEdit.get('ingredients') as FormArray).push(
       new FormGroup({
-        ingredientName: new FormControl(null, Validators.required),
+        name: new FormControl(null, Validators.required),
         amount: new FormControl(null, [
           Validators.required,
           Validators.pattern(/^[1-9]+[0-9]*$/)
@@ -82,7 +82,7 @@ export class RecipeEditComponent implements OnInit {
           recipeIngredients.push(
             new FormGroup({
               // tslint:disable-next-line: object-literal-key-quotes
-              'ingredientName': new FormControl(ingredient.name, Validators.required),
+              'name': new FormControl(ingredient.name, Validators.required),
               // tslint:disable-next-line: object-literal-key-quotes
               'amount': new FormControl(ingredient.amount, [
                 Validators.required,
