@@ -2,7 +2,7 @@ import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {Recipe} from '../../shared/recipe.modal';
-import { RecipeService } from './../../services/recipe.services';
+import { RecipeService } from '../../services/recipe.service';
 
 @Component({
   selector: 'app-recipe-list',

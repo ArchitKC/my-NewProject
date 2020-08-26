@@ -1,4 +1,4 @@
-import { ShoppingListService } from './../../services/shoppinglist.services';
+import { ShoppingListService } from '../../services/shoppinglist.service';
 import { Ingredient } from './../../shared/ingredient.modal';
 import { Component, OnInit, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';

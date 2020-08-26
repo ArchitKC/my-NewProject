@@ -1,6 +1,8 @@
+import { HttpServices } from './services/data.storage.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -19,10 +21,11 @@ import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component'
 
 import { DropdownDirective } from './shared/dropdown.directive';
 
-import { LoggingServices } from './services/logging.services';
-import { AccountServices } from './services/account.services';
-import { ShoppingListService } from './services/shoppinglist.services';
-import { RecipeService } from './services/recipe.services';
+import { LoggingServices } from './services/logging.service';
+import { AccountServices } from './services/account.service';
+import { ShoppingListService } from './services/shoppinglist.service';
+import { RecipeService } from './services/recipe.service';
+// import { RecipeResolver } from './services/recipe.resolver.service';
 
 @NgModule({
   declarations: [
@@ -45,12 +48,15 @@ import { RecipeService } from './services/recipe.services';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [
     AccountServices,
     LoggingServices,
     ShoppingListService,
+    HttpServices,
+    // RecipeResolver,
     RecipeService
   ],
   bootstrap: [AppComponent]

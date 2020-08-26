@@ -1,4 +1,4 @@
-import { LoggingServices } from './logging.services';
+import { LoggingServices } from './logging.service';
 import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable()

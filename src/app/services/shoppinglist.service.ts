@@ -1,5 +1,5 @@
-import { EventEmitter } from '@angular/core';
-import { Ingredient } from './../shared/ingredient.modal';
+Httpimport { EventEmitter } from '@angular/core';
+import { Ingredient } from '../shared/ingredient.modal';
 import { Subject } from 'rxjs';
 
 export class ShoppingListService{

@@ -1,6 +1,6 @@
 import { Recipe } from './../../shared/recipe.modal';
 import { Ingredient } from './../../shared/ingredient.modal';
-import { RecipeService } from './../../services/recipe.services';
+import { RecipeService } from '../../services/recipe.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';

@@ -1,4 +1,4 @@
-import { AccountServices } from './../services/account.services';
+import { AccountServices } from '../services/account.service';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
