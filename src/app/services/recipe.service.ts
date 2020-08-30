@@ -42,6 +42,7 @@ export class RecipeService{
     return this.recipes[index];
   }
 
+  // tslint:disable-next-line: typedef
   setRecipe(recipeFetched: Recipe[]){
     this.recipes = recipeFetched;
     this.recipeChanged.next(this.recipes.slice());

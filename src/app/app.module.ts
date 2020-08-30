@@ -45,7 +45,7 @@ import { RecipeService } from './services/recipe.service';
     RecipeEditComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
