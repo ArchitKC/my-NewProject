@@ -1,7 +1,8 @@
-import { throwError } from 'rxjs';
+import { User } from './../auth/user.modules';
+import { throwError, Subject } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap, repeat } from 'rxjs/operators';
 
 export interface AuthToken{
   kind: string;
@@ -16,6 +17,7 @@ export interface AuthToken{
 @Injectable({providedIn : 'root'})
 export class AuthService{
 
+  user = new Subject<User>();
 
   baseSignURL = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=';
   baseLoginURL = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=';
@@ -33,7 +35,14 @@ export class AuthService{
       password: password,
       returnSecureToken: true
     })
-      .pipe(catchError(this.errorHandling));
+    .pipe(catchError(this.errorHandling),
+    tap(respData => {
+      this.handleAuthentication(
+        respData.email,
+        respData.localId,
+        respData.idToken,
+        +respData.expiresIn);
+      }));
   }
 
   // tslint:disable-next-line: typedef
@@ -44,7 +53,14 @@ export class AuthService{
       password: password,
       returnSecureToken: true
     })
-    .pipe(catchError(this.errorHandling));
+    .pipe(catchError(this.errorHandling),
+    tap(respData => {
+      this.handleAuthentication(
+        respData.email,
+        respData.localId,
+        respData.idToken,
+        +respData.expiresIn);
+    }));
   }
 
   // tslint:disable-next-line: typedef
@@ -69,5 +85,20 @@ export class AuthService{
       }
       return throwError(errorMessage);
     }
+  }
+
+  private handleAuthentication(email: string, localId: string, token: string, expiresIn: number){
+    const expirationDate = new Date(
+      new Date().getTime() + +expiresIn * 1000
+    );
+
+    const newUser = new User(
+      email,
+      localId,
+      token,
+      expirationDate
+    );
+
+    this.user.next(newUser);
   }
 }
