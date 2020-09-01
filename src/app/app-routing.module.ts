@@ -1,3 +1,4 @@
+import { AuthComponent } from './auth/auth.component';
 import { RecipeResolver } from './services/recipe.resolver.service';
 import { ShoppingListEditComponent } from './shopping-list/shopping-list-edit/shopping-list-edit.component';
 import { NgModule } from '@angular/core';
@@ -14,6 +15,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 const appRoute: Routes = [
   {path: '', redirectTo: 'recipe',  pathMatch: 'full'},
+  {path: 'auth', component: AuthComponent},
   {path: 'recipe', component: RecipeComponent,
   children: [
     {path: '', component: RecipeInitialComponent},

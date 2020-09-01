@@ -1,4 +1,3 @@
-import { HttpServices } from './services/data.storage.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -18,6 +17,9 @@ import { NewAccountComponent } from './new-account/new-account.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RecipeInitialComponent } from './recipe/recipe-initial/recipe-initial.component';
 import { RecipeEditComponent } from './recipe/recipe-edit/recipe-edit.component';
+import { AuthComponent } from './auth/auth.component';
+import { LoadingSpinner } from './shared/loading-spinner/loading-spinner.component';
+
 
 import { DropdownDirective } from './shared/dropdown.directive';
 
@@ -25,7 +27,9 @@ import { LoggingServices } from './services/logging.service';
 import { AccountServices } from './services/account.service';
 import { ShoppingListService } from './services/shoppinglist.service';
 import { RecipeService } from './services/recipe.service';
-// import { RecipeResolver } from './services/recipe.resolver.service';
+import { AuthService } from './services/auth.service';
+import { HttpServices } from './services/data.storage.service';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +46,9 @@ import { RecipeService } from './services/recipe.service';
     NewAccountComponent,
     PageNotFoundComponent,
     RecipeInitialComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    AuthComponent,
+    LoadingSpinner
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -57,7 +63,8 @@ import { RecipeService } from './services/recipe.service';
     ShoppingListService,
     HttpServices,
     // RecipeResolver,
-    RecipeService
+    RecipeService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
