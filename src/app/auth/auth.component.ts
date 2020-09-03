@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthComponent implements OnInit {
 
-  isLoginMode = false;
+  isLoginMode = true;
   isLoading = false;
   errorMessage = '';
   successMessage = '';

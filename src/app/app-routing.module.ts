@@ -1,3 +1,4 @@
+import { AuthGuard } from './services/auth.guard';
 import { AuthComponent } from './auth/auth.component';
 import { RecipeResolver } from './services/recipe.resolver.service';
 import { ShoppingListEditComponent } from './shopping-list/shopping-list-edit/shopping-list-edit.component';
@@ -17,8 +18,10 @@ const appRoute: Routes = [
   // {path: '', redirectTo: 'recipe',  pathMatch: 'full'},
 
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
-  {path: 'auth', component: AuthComponent},
-  {path: 'recipe', component: RecipeComponent,
+  {
+    path: 'recipe',
+    component: RecipeComponent,
+    canActivate: [AuthGuard],
   children: [
     {path: '', component: RecipeInitialComponent},
     {path: 'edit', component: RecipeEditComponent},
@@ -29,9 +32,10 @@ const appRoute: Routes = [
   children: [
     {path: 'edit', component: ShoppingListEditComponent}
   ]},
-  {path: 'viewService', component: AccountComponent},
+  { path: 'viewService', component: AccountComponent, canActivate: [AuthGuard]},
+  { path: 'auth', component: AuthComponent },
   {path: 'not-found', component: PageNotFoundComponent},
-  {path: '**', redirectTo: 'not-found'}
+  {path: '**', redirectTo: 'not-found'},
 ];
 
 

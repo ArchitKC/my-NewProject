@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -29,6 +29,7 @@ import { ShoppingListService } from './services/shoppinglist.service';
 import { RecipeService } from './services/recipe.service';
 import { AuthService } from './services/auth.service';
 import { HttpServices } from './services/data.storage.service';
+import { AuthInterceptor } from './services/auth.interceptor.service';
 
 
 @NgModule({
@@ -62,10 +63,14 @@ import { HttpServices } from './services/data.storage.service';
     LoggingServices,
     ShoppingListService,
     HttpServices,
-    // RecipeResolver,
     RecipeService,
-    AuthService
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

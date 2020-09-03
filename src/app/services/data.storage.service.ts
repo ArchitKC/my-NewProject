@@ -1,8 +1,9 @@
+import { AuthService } from './auth.service';
 import { Recipe } from './../shared/recipe.modal';
 import { RecipeService } from './recipe.service';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, tap } from 'rxjs/operators';
+import { map, tap, take, exhaustMap } from 'rxjs/operators';
 
 @Injectable()
 
@@ -12,7 +13,8 @@ export class HttpServices{
 
   constructor(
     private http: HttpClient,
-    private recipeServices: RecipeService
+    private recipeServices: RecipeService,
+    private authService: AuthService
   ){}
 
   // tslint:disable-next-line: typedef
@@ -28,10 +30,12 @@ export class HttpServices{
   fetchRecipe(){
     return this.http.get<Recipe[]>(this.baseUrl)
     .pipe(map(recipes => {
-      return recipes.map(recipe => {
-        return {...recipe, ingredients : recipe.ingredients ? recipe.ingredients : []};
+      return recipes
+      .map(recipe => {
+        return { ...recipe, ingredients: recipe.ingredients ? recipe.ingredients : [] };
       });
-    }), tap(recipeFetch => {
+    }),
+    tap(recipeFetch => {
       this.recipeServices.setRecipe(recipeFetch);
     }));
   }

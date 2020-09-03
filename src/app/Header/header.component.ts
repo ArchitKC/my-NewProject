@@ -41,5 +41,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
   }
 
   // tslint:disable-next-line: typedef
-  onLogOut(){}
+  onLogOut(){
+    this.authService.logout();
+  }
 }
