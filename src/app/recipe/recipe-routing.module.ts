@@ -20,7 +20,7 @@ const recipeRoute: Routes = [
       { path: ':id/edit', component: RecipeEditComponent, resolve: [RecipeResolver] }
     ]
   }
-]
+];
 
 @NgModule({
   imports: [RouterModule.forChild(recipeRoute)],
