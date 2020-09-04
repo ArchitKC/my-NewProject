@@ -40,9 +40,11 @@ const appRoute: Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoute, {
-    initialNavigation: 'enabled'
-})],
+//   imports: [RouterModule.forRoot(appRoute, {
+//     initialNavigation: 'enabled'
+// })],
+//   exports: [RouterModule]
+  imports: [RouterModule.forRoot(appRoute)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

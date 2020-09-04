@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -7,6 +7,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./loading-spinner.component.css']
 })
 
-export class LoadingSpinner{
-
-}
+export class LoadingSpinner {}
