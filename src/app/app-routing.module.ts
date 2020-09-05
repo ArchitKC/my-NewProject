@@ -15,8 +15,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 
 const appRoute: Routes = [
-  // {path: '', redirectTo: 'recipe',  pathMatch: 'full'},
-
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
   {
     path: 'recipe',

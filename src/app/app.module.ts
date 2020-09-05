@@ -1,3 +1,4 @@
+import { CoreModule } from './core.module';
 import { authModule } from './auth/auth.module';
 import { ShoppingModule } from './shopping-list/shopping.module';
 import { RecipeModule } from './recipe/recipe.app.module';
@@ -30,8 +31,7 @@ import { AuthInterceptor } from './services/auth.interceptor.service';
     HeaderComponent,
     DropdownDirective,
     AccountComponent,
-    NewAccountComponent,
-
+    NewAccountComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -39,7 +39,8 @@ import { AuthInterceptor } from './services/auth.interceptor.service';
     AppRoutingModule,
     RecipeModule,
     ShoppingModule,
-    authModule
+    authModule,
+    CoreModule
   ],
   providers: [
     AccountServices,
