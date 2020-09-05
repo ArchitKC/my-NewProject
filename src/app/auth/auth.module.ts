@@ -1,22 +1,23 @@
-import { LoadingSpinner } from './../shared/loading-spinner/loading-spinner.component';
-import { AuthComponent } from './auth.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+import { SharedModule } from './../shared/shared.module';
+import { RouterModule } from '@angular/router';
+import { AuthComponent } from './auth.component';
 
 
 @NgModule({
   declarations: [
-    AuthComponent,
-    LoadingSpinner
+    AuthComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule
+    RouterModule.forChild([{ path: '', component: AuthComponent }]),
+    SharedModule
   ],
   exports: [
   ]
 })
-export class authModule{}
+export class AuthModule{}
